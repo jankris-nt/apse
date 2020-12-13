@@ -1,0 +1,48 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: jk4-db
+    volumes:
+      - ./mounts/db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    user: '1000'
+    networks:
+      - elk
+    environment:
+      POSTGRES_USER: uss
+      POSTGRES_PASSWORD: usspw
+      POSTGRES_DB: stockerize_prod
+  app:
+    build:
+      context: /home/jankris/cont2/spring-boot-elastic-high
+      dockerfile: ./Dockerfile
+    container_name: jk4-app
+    depends_on:
+      - db
+    networks:
+      - elk
+    ports: 
+      - "8080:8080"
+    volumes:
+      - ${APPLICATION_ROOT_FOLDER}:/project
+      - ${HOME}/.m2:/home/app/.m2
+
+
+  elasticsearch:
+ 
+    container_name: jk4-elasticsearch
+    build:
+      context: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elk
+    environment:
+      - "discovery.type=single-node"
+      
+networks:
+  elk:
+    driver: bridge     

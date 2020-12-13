@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Servs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+    <thead>
+        <tr>
+            <th> App_code </th>
+            <th> Service_code </th>
+            <th> Name </th>
+            <th> id </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${servs.empty}">
+            <td colspan="2"> No Servs Available </td>
+        </tr>
+        <tr th:each="serv : ${servs}">
+            <td><span th:text="${serv.app_code}"> App_code </span></td>
+            <td><span th:text="${serv.service_code}"> Service_code </span></td>
+             <td><span th:text="${serv.name}"> Name </span></td>
+               <td><span th:text="${serv.id}"> Id </span></td> 
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Apps</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+    <thead>
+        <tr>
+            <th> App_code </th>
+            <th> Name </th>
+            <th> App_cost </th>
+            <th> id </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${apps.empty}">
+            <td colspan="2"> No Apps Available </td>
+        </tr>
+        <tr th:each="app : ${apps}">
+            <td><span th:text="${app.app_code}"> App_code </span></td>
+            <td><span th:text="${app.name}"> Name </span></td>
+             <td><span th:text="${app.app_cost}"> App_cost </span></td>
+               <td><span th:text="${app.id}"> Id </span></td> 
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

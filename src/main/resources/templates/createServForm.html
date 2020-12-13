@@ -1,0 +1,23 @@
+<form action="#" th:action="@{/servs/save}" th:object="${form}"
+  method="post">
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Save">
+        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+        <table>
+            <thead>
+                <tr>
+                    <th> App_code</th>
+                    <th> Service_code</th>
+                    <th> Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="serv, itemStat : *{servs}">
+                    <td><input th:field="*{servs[__${itemStat.index}__].app_code}" /></td>
+                    <td><input th:field="*{servs[__${itemStat.index}__].service_code}" /></td>
+                    <td><input th:field="*{servs[__${itemStat.index}__].name}" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
