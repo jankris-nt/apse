@@ -11,10 +11,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+/* import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.FieldType; */
 
 @Entity
 @Table(name = "app_service")
@@ -26,7 +26,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 // @Document(indexName = "servdata")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Serv {	
-	private @Id String id;
+	private  String id;
 //    private @Field(type = FieldType.Text)  String app_code;
 	private String app_code;
     private String service_code;

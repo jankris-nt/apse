@@ -3,6 +3,7 @@ package com.apse.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,10 +12,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+/* import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.FieldType; */
 
 @Entity
 @Table(name = "app")
@@ -25,8 +26,9 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Builder
 // @Document(indexName = "appdata")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class App {	
-	private @Id String id;
+public class App {
+	@Id
+	private String id;
 //    private @Field(type = FieldType.Text)  String app_code;
 	private String app_code;
     private String name;

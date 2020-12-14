@@ -11,7 +11,7 @@
 	<groupId>com</groupId>
 	<artifactId>apse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>Apps and Servs</name>
 	<description>Applications and services</description>
 
 	<properties>
@@ -46,11 +46,6 @@
 		</dependency>
 		
 		<!-- Elasticsearch Dependencies -->
-		<dependency>
-		    <groupId>org.springframework.data</groupId>
-		    <artifactId>spring-data-elasticsearch</artifactId>
-		    <version>4.0.0.RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>

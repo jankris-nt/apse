@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+// import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
 @Primary
 @Configuration
@@ -21,9 +22,8 @@ public class ElasticSearchConfig extends AbstractFactoryBean<Object> {
     private String clusterNodes;
     @Value("${spring.data.elasticsearch.cluster-name}")
     private String clusterName;
+
     private RestHighLevelClient restHighLevelClient;
-    
-    
     
     @Override
     public void destroy() {
@@ -60,7 +60,6 @@ public class ElasticSearchConfig extends AbstractFactoryBean<Object> {
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return restHighLevelClient;
+        return restHighLevelClient; 
     }
-
 }

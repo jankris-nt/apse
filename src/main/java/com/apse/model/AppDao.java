@@ -81,7 +81,7 @@ public class AppDao {
 		  Map<String, Object> sourceAsMap = getResponse.getSourceAsMap();
 		  return sourceAsMap;
 		}
-	 String app = "hello";
+
 	  
  //----------------------------------------------------------------------------------------------------------------------
 	 
