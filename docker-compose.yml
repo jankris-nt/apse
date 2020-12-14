@@ -16,7 +16,7 @@ services:
       POSTGRES_DB: stockerize_prod
   app:
     build:
-      context: /home/jankris/cont2/spring-boot-elastic-high
+      context: .
       dockerfile: ./Dockerfile
     container_name: jk4-app
     depends_on:
@@ -29,9 +29,7 @@ services:
       - ${APPLICATION_ROOT_FOLDER}:/project
       - ${HOME}/.m2:/home/app/.m2
 
-
-  elasticsearch:
- 
+  elasticsearch: 
     container_name: jk4-elasticsearch
     build:
       context: elasticsearch
@@ -42,6 +40,24 @@ services:
       - elk
     environment:
       - "discovery.type=single-node"
+      
+#  web:
+##    image: tomcat:9
+#    build:
+#      context: ./tomcat
+#    container_name: jk4-tomcat
+#    ports: 
+#      - "8080:8080"
+#    links:
+#       - app
+#    depends_on:
+#      - app
+#      - db
+#    networks:
+#      - elk
+#    volumes:
+#      - ./target/apse-0.0.1-SNAPSHOT.jar:/usr/local/tomcat/webapps/apse.jar
+#      - ./target/apse-0.0.1-SNAPSHOT:/usr/local/tomcat/webapps/apse      
       
 networks:
   elk:

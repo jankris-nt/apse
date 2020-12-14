@@ -6,7 +6,6 @@ RUN groupadd -g 1000 app \
  && useradd -g 1000 -u 1000 -d /home/app -s /bin/bash app
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-
 RUN echo \
     "<settings xmlns='http://maven.apache.org/SETTINGS/1.0.0\' \
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' \
@@ -23,7 +22,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 #Start application
 WORKDIR /project
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-RUN chown -R app:app ./
+# RUN chown -R app:app ./
 # RUN chown -R app:app /home/app/.m2
 
 

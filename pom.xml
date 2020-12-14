@@ -47,6 +47,11 @@
 		
 		<!-- Elasticsearch Dependencies -->
 		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-elasticsearch</artifactId>
+		    <version>4.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
 			<version>6.6.1</version>
@@ -55,12 +60,6 @@
 			<groupId>org.elasticsearch.client</groupId>
 			<artifactId>elasticsearch-rest-high-level-client</artifactId>
 			<version>6.6.1</version>
-				<exclusions>
-			    <exclusion>
-			        <groupId>org.elasticsearch</groupId>
-			        <artifactId>elasticsearch</artifactId>
-			    </exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
